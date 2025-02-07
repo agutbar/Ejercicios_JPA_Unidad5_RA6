@@ -20,6 +20,9 @@ public class InicializadorDatos implements CommandLineRunner  {
 	@Autowired
 	private PedidoRepository pedidoRepository;
 	
+	@Autowired
+	private ProductoRepository productoRepository;
+	
 	private Faker faker = new Faker();
 
 	@Override

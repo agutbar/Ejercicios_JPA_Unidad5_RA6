@@ -45,8 +45,8 @@ public class Pedido {
 	@ManyToMany(fetch = FetchType.EAGER, mappedBy = "cursos")
     private Set<Producto> productos = new HashSet<>();
 	
+	
     public Pedido() {}
-
 
 	public Pedido(Long id, @Past LocalDateTime fecha, @NotBlank @NotNull String descripcion, @NotNull Integer cantidad,
 			Cliente cliente) {
@@ -56,6 +56,17 @@ public class Pedido {
 		this.descripcion = descripcion;
 		this.cantidad = cantidad;
 		this.cliente = cliente;
+	}
+	
+	public Pedido(Long id, @Past LocalDateTime fecha, @NotBlank @NotNull String descripcion, @NotNull Integer cantidad,
+			Cliente cliente, Set<Producto> productos) {
+		super();
+		this.id = id;
+		this.fecha = fecha;
+		this.descripcion = descripcion;
+		this.cantidad = cantidad;
+		this.cliente = cliente;
+		this.productos = productos;
 	}
 
 
@@ -98,8 +109,13 @@ public class Pedido {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	
-	
-	
+
+	public Set<Producto> getProductos() {
+		return productos;
+	}
+
+	public void setProductos(Set<Producto> productos) {
+		this.productos = productos;
+	}
 	
 }
